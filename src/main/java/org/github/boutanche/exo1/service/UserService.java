@@ -7,7 +7,5 @@ import org.springframework.context.ApplicationContext;
  * Interface de UserServiceImpl
  */
 public interface UserService {
-    default void createUser(User user, ApplicationContext context){
-
-    }
+    void createUser(User user, ApplicationContext context);
 }
