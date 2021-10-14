@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.github.boutanche</groupId>
@@ -17,8 +18,6 @@
         <awaitility.version>4.0.2</awaitility.version>
         <assertj-core.version>2.9.1</assertj-core.version>
     </properties>
-
-
 
     <dependencies>
         <dependency>
@@ -46,21 +45,17 @@
             <artifactId>spring-expression</artifactId>
             <version>5.2.1.RELEASE</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>5.2.1.RELEASE</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.0</version>
         </dependency>
-
-
     </dependencies>
 
 </project>
