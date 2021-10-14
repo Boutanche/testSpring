@@ -5,25 +5,44 @@ package org.github.boutanche.exo1.domain.entity;
  */
 public class User {
 
+
     /**
-     * Identifiant Unique de l'Utilsateur
+     * Identifiant Unique de l'utilsateur
      */
-    private int id;
+    private Integer id;
     /**
      * Nom de l'utilisateur
      */
-    private String name;
+    private String nom;
 
-    public void setIdUser(int idUser){
-        this.id = idUser;
+    /**
+     * Getter nom de l'utilisateur
+     * @return nom de l'utilisateur
+     */
+    public String getNom() {
+        return nom;
     }
-    public int getIdUser(){
+
+    /**
+     * Setter nom
+     * @param nom nom de l'utilisateur
+     */
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    /**
+     * Getter Id de l'utilisateur
+     * @return id de l'utilisateur
+     */
+    public Integer getId() {
         return id;
     }
-    public void setNameUser(String nameUser){
-        this.name = nameUser;
-    }
-    public String getNameUser(){
-        return name;
+    /**
+     * Setter Id de l'utilisateur
+     * @param id de l'utilisateur
+     */
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

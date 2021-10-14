@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserRepositoryImpl implements UserRepository {
 
+    @Override
     public void addUser(User user){
         //var stmt = @"insert into user (Name) output INSERTED.Id values(@Name)"
         String youhou = "Youhou j'ai créé un User";

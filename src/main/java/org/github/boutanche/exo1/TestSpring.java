@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class TestSpring {
 
     /**
-     * @param arg
+     * @param arg is aarg
      */
     public static void main(String[] arg) {
 
@@ -23,10 +23,9 @@ public class TestSpring {
         var userService = context.getBean(UserService.class);
 
         User user = new User();
-        user.setIdUser(1);
-        user.setNameUser("Benoit");
+        user.setNom("Benoit");
 
-        userService.createUser(user);
+        userService.createUser(user, context);
 
     }
 }
