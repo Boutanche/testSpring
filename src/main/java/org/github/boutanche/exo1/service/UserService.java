@@ -7,5 +7,9 @@ import org.springframework.context.ApplicationContext;
  * Interface de UserServiceImpl
  */
 public interface UserService {
-    void createUser(User user, ApplicationContext context);
+    /**
+     * Création d'un Utilisateur dans la BDD
+     * @param user Un Utilisateur
+     */
+    void createUser(User user);
 }
