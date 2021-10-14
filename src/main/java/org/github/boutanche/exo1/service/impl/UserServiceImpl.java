@@ -5,9 +5,8 @@ import org.github.boutanche.exo1.domain.repository.UserRepository;
 import org.github.boutanche.exo1.service.UserService;
 import org.springframework.stereotype.Service;
 
-
 /**
- * Implémentation UserService
+ * Implémentation de l'interface {@link UserService}
  */
 
 @Service
@@ -22,7 +21,5 @@ public class UserServiceImpl implements UserService {
     public void createUser(User user) {
         userRepository.addUser(user);
     }
-
-
 
 }
