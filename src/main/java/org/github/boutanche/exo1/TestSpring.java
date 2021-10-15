@@ -23,7 +23,7 @@ public class TestSpring {
         var userService = context.getBean(UserService.class);
 
         User user = new User();
-        user.setNom("Benoit");
+        user.setNom("Sophie");
 
         userService.createUser(user);
 
