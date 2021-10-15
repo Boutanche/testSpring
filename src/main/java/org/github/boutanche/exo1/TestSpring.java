@@ -1,17 +1,20 @@
 package org.github.boutanche.exo1;
 
 import org.github.boutanche.exo1.configuration.Exo1Configuration;
-import org.github.boutanche.exo1.domain.entity.User;
+import org.github.boutanche.exo1.domain.entity.Utilisateur;
 import org.github.boutanche.exo1.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.sql.SQLException;
+
 public class TestSpring {
 
     /**
+     * CRUD des utilisateurs
      * @param arg is aarg
      */
-    public static void main(String[] arg) {
+    public static void main(String[] arg) throws SQLException {
 
         System.out.println("Hello");
 
@@ -22,10 +25,9 @@ public class TestSpring {
         }
         var userService = context.getBean(UserService.class);
 
-        User user = new User();
-        user.setNom("Sophie");
-
-        userService.createUser(user);
+        Utilisateur utilisateur = new Utilisateur();
+        utilisateur.setNom("Bernard");
+        userService.createUser(utilisateur);
 
     }
 }

@@ -1,6 +1,6 @@
 package org.github.boutanche.exo1.domain.repository;
 
-import org.github.boutanche.exo1.domain.entity.User;
+import org.github.boutanche.exo1.domain.entity.Utilisateur;
 
 import java.sql.SQLException;
 
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public interface UserRepository {
     /**
      * Créer un Utilisateur dans la BDD
-     * @param user Un Utilisateur
+     * @param utilisateur Un Utilisateur
      */
-    void addUser(User user) throws SQLException;
+    void addUser(Utilisateur utilisateur) throws SQLException;
 }

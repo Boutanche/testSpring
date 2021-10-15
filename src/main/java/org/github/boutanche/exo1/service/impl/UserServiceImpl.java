@@ -1,6 +1,6 @@
 package org.github.boutanche.exo1.service.impl;
 
-import org.github.boutanche.exo1.domain.entity.User;
+import org.github.boutanche.exo1.domain.entity.Utilisateur;
 import org.github.boutanche.exo1.domain.repository.UserRepository;
 import org.github.boutanche.exo1.service.UserService;
 import org.springframework.stereotype.Service;
@@ -19,12 +19,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void createUser(User user) {
-        try {
-            userRepository.addUser(user);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public void createUser(Utilisateur utilisateur) throws SQLException {
+        userRepository.addUser(utilisateur);
     }
 
 }

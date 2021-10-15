@@ -5,120 +5,116 @@ import java.util.Date;
 /**
  * Utilisateur
  */
-public class User {
+public class Utilisateur {
     /**
-     * Identifiant Unique de l'utilsateur
+     * Identifiant Unique
      */
     private Integer id;
     /**
-     * Nom de l'utilisateur
+     * Nom
      */
     private String nom;
     /**
-     * Prénom de l'utilisateur
+     * Prénom
      */
     private String prenom;
     /**
-     * Email de l'utilisateur
+     * Email
      */
     private String email;
     /**
-     * Date de naissance de l'utilisateur
+     * Date de naissance
      */
-    private Date date_naissance;
+    private Date dateNaissance;
     /**
-     * Pays de l'utilisateur
+     * Pays
      */
     private String pays;
     /**
-     * Ville de l'utilisateur
+     * Ville
      */
     private String ville;
     /**
-     * Code Postal de l'utilisateur
+     * Code Postal
      */
-    private String code_postal;
+    private String codePostal;
 
     /**
-     * Getter nom de l'utilisateur
-     * @return nom de l'utilisateur
+     * @return nom
      */
     public String getNom() {
         return nom;
     }
     /**
-     * Setter nom
-     * @param nom nom de l'utilisateur
+     * @param nom
      */
     public void setNom(String nom) {
         this.nom = nom;
     }
     /**
-     * Getter Id de l'utilisateur
-     * @return id de l'utilisateur
+     * @return id
      */
     public Integer getId() {
         return id;
     }
     /**
-     * Setter Id de l'utilisateur
-     * @param id de l'utilisateur
+     * @param id
      */
     public void setId(Integer id) {
         this.id = id;
     }
 
     /**
-     * @return Getter de prenom
+     * @return prenom
      */
     public String getPrenom() {
         return prenom;
     }
 
     /**
-     * @param prenom String prenom de l'utilisateur
+     * @param prenom
      */
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
 
     /**
-     * @return Getter Email de l'utilisateur
+     * @return eamil
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * @param email String email de l'utilisateur
+     * @param email
      */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /**
-     * @return Date date de naissande de l'utilisateur
+     * @return date de naissance
      */
-    public Date getDate_naissance() {
-        return date_naissance;
+    public Date getDateNaissance() {
+        return dateNaissance;
     }
 
     /**
-     * @param date_naissance Date date de naissance de l'utilisateur
+     * @param dateNaissance
      */
-    public void setDate_naissance(Date date_naissance) {
-        this.date_naissance = date_naissance;
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance = dateNaissance;
     }
 
     /**
-     * @return Getter du pays de l'utilisateur
+     * @return pays
      */
     public String getPays() {
         return pays;
     }
 
     /**
-     * @param pays String pays de l'utilisateur
+     * @param pays
      */
     public void setPays(String pays) {
         this.pays = pays;
@@ -141,14 +137,14 @@ public class User {
     /**
      * @return Getter du code postal de l'utilisateur
      */
-    public String getCode_postal() {
-        return code_postal;
+    public String getCodePostal() {
+        return codePostal;
     }
 
     /**
-     * @param code_postal Strin Code postal de l'utilisateur
+     * @param codePostal Strin Code postal de l'utilisateur
      */
-    public void setCode_postal(String code_postal) {
-        this.code_postal = code_postal;
+    public void setCodePostal(String codePostal) {
+        this.codePostal = codePostal;
     }
 }

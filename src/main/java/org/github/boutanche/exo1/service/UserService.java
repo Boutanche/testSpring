@@ -1,6 +1,8 @@
 package org.github.boutanche.exo1.service;
 
-import org.github.boutanche.exo1.domain.entity.User;
+import org.github.boutanche.exo1.domain.entity.Utilisateur;
+
+import java.sql.SQLException;
 
 /**
  * Service de gestion des Utillisateurs
@@ -8,7 +10,7 @@ import org.github.boutanche.exo1.domain.entity.User;
 public interface UserService {
     /**
      * Création d'un Utilisateur dans la BDD
-     * @param user Un Utilisateur
+     * @param utilisateur
      */
-    void createUser(User user);
+    void createUser(Utilisateur utilisateur) throws SQLException;
 }
