@@ -26,7 +26,7 @@ public class UserRepositoryImpl implements UserRepository {
      * @param utilisateur
      */
     @Override
-    public void addUser(Utilisateur utilisateur) throws SQLException {
+    public void addUtilisateur(Utilisateur utilisateur) throws SQLException {
 
         String nom = utilisateur.getNom();
         String prenom = utilisateur.getPrenom();
@@ -56,7 +56,7 @@ public class UserRepositoryImpl implements UserRepository {
                 if(rs.next()){
                     Integer id = rs.getObject(1, Integer.class);
                     ;
-                    System.out.println("INFO : -id de l'utilisateur : " + findUserById(id).toString());
+                    System.out.println("INFO : -id de l'utilisateur : " + findUtilisateurById(id).toString());
 
                 }
             }
@@ -72,8 +72,8 @@ public class UserRepositoryImpl implements UserRepository {
      * @param id
      * @return Utilisateur
      */
-
-    public Utilisateur findUserById(Integer id){
+    @Override
+    public Utilisateur findUtilisateurById(Integer id){
         var request = "select * from exo1.utilisateur where id = ?";
         Utilisateur utilisateur = new Utilisateur();
 
@@ -111,5 +111,51 @@ public class UserRepositoryImpl implements UserRepository {
             throw new RuntimeException("Erreur pendant selection de l'utilisateur", e);
         }
         return utilisateur;
+    }
+
+
+    /**
+     * Supprimer un utilisateur par son identifiant
+     * @param id
+     */
+    @Override
+    public void deleteUtilisateurById(Integer id){
+        String request ="DELETE FROM exo1.utilisateur WHERE id= ?";
+        try {
+            Connection conn = dataSource.getConnection();
+            PreparedStatement statement = conn.prepareStatement(request);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+            System.out.println("Suppression effectuée avec une action sur " + 1 + " ligne.");
+        }
+
+        catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    @Override
+    public void updateUtilisateurById(Integer id, Utilisateur utilisateur){
+        String request ="UPDATE exo1.utilisateur set nom = ?, prenom = ?, email = ?, " +
+                "date_naissance = ?, pays = ?, ville = ?, code_postal = ? WHERE id = ?";
+        try {
+            Connection conn = dataSource.getConnection();
+            PreparedStatement statement = conn.prepareStatement(request);
+            if(id == utilisateur.getId()){
+                statement.setObject(1, utilisateur.getNom());
+                statement.setObject(2, utilisateur.getPrenom());
+                statement.setObject(3, utilisateur.getEmail());
+                statement.setObject(4, utilisateur.getDateNaissance());
+                statement.setObject(5, utilisateur.getPays());
+                statement.setObject(6, utilisateur.getVille());
+                statement.setObject(7, utilisateur.getCodePostal());
+                statement.setObject(8, id);
+                statement.executeUpdate();
+            }
+            else{
+                System.out.println("Vous essayez de modifier le mauvais utilisateur");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

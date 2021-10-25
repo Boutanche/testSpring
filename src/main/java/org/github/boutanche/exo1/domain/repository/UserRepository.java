@@ -12,5 +12,27 @@ public interface UserRepository {
      * Créer un Utilisateur dans la BDD
      * @param utilisateur Un Utilisateur
      */
-    void addUser(Utilisateur utilisateur) throws SQLException;
+    void addUtilisateur(Utilisateur utilisateur) throws SQLException;
+
+    /**
+     * Sélectionner un utilisateur dont on connait l'id
+     * @param id
+     * @return
+     * @throws SQLException
+     */
+    Utilisateur findUtilisateurById(Integer id) throws SQLException;
+
+    /**
+     * Supprimer un utilisateur dont on connait l'id
+     * @param id
+     * @throws SQLException
+     */
+    void deleteUtilisateurById(Integer id) throws  SQLException;
+
+    /**
+     * Mise à jour d'un utilisateur
+     * @param id
+     * @param utlisateur
+     */
+    void updateUtilisateurById(Integer id, Utilisateur utlisateur);
 }

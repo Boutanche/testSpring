@@ -122,14 +122,14 @@ public class Utilisateur {
     }
 
     /**
-     * @return Getter ville de l'utilisateur
+     * @return ville
      */
     public String getVille() {
         return ville;
     }
 
     /**
-     * @param ville Sting ville de l'utilisateur
+     * @param ville
      */
     public void setVille(String ville) {
 
@@ -137,14 +137,14 @@ public class Utilisateur {
     }
 
     /**
-     * @return Getter du code postal de l'utilisateur
+     * @return Code postal
      */
     public String getCodePostal() {
         return codePostal;
     }
 
     /**
-     * @param codePostal Strin Code postal de l'utilisateur
+     * @param codePostal
      */
     public void setCodePostal(String codePostal) {
         this.codePostal = codePostal;

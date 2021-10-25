@@ -20,7 +20,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createUser(Utilisateur utilisateur) throws SQLException {
-        userRepository.addUser(utilisateur);
+        userRepository.addUtilisateur(utilisateur);
+    }
+    @Override
+    public Utilisateur selectUser(Integer id) throws SQLException{
+        return userRepository.findUtilisateurById(id);
+    }
+    @Override
+    public void deleteUser(Integer id) throws SQLException{
+        userRepository.deleteUtilisateurById(id);
+    }
+    @Override
+    public void modifyUser(Integer id, Utilisateur utilisateur) throws SQLException{
+        userRepository.updateUtilisateurById(id, utilisateur);
     }
 
 }

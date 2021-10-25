@@ -31,15 +31,15 @@ public class TestSpring {
         Utilisateur utilisateur =
                 new Utilisateur();
 
-        utilisateur.setNom("FINN");
-        utilisateur.setPrenom("Larry");
-        utilisateur.setEmail("FL@gmalo.com");
+        utilisateur.setId(19);
+        utilisateur.setNom("BETRANCOURT");
+        utilisateur.setPrenom("Bérénice");
+        utilisateur.setEmail("BJ@gmalo.com");
         utilisateur.setDateNaissance(LocalDate.of(1995,12,10));
         utilisateur.setPays("France");
         utilisateur.setVille("Limoges");
         utilisateur.setCodePostal("87000");
 
-        userService.createUser(utilisateur);
-
+        userService.modifyUser(19, utilisateur);
     }
 }
