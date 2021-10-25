@@ -1,6 +1,7 @@
 package org.github.boutanche.exo1.domain.entity;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  * Utilisateur
@@ -25,7 +26,7 @@ public class Utilisateur {
     /**
      * Date de naissance
      */
-    private Date dateNaissance;
+    private LocalDate dateNaissance;
     /**
      * Pays
      */
@@ -95,14 +96,14 @@ public class Utilisateur {
     /**
      * @return date de naissance
      */
-    public Date getDateNaissance() {
+    public LocalDate getDateNaissance() {
         return dateNaissance;
     }
 
     /**
      * @param dateNaissance
      */
-    public void setDateNaissance(Date dateNaissance) {
+    public void setDateNaissance(LocalDate dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 
@@ -131,6 +132,7 @@ public class Utilisateur {
      * @param ville Sting ville de l'utilisateur
      */
     public void setVille(String ville) {
+
         this.ville = ville;
     }
 
@@ -147,4 +149,5 @@ public class Utilisateur {
     public void setCodePostal(String codePostal) {
         this.codePostal = codePostal;
     }
+
 }

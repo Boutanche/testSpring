@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.time.LocalDate;
 
 /**
  * Implémentation de l'interface {@link UserRepository}
@@ -27,20 +28,35 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public void addUser(Utilisateur utilisateur) throws SQLException {
 
-        String name = utilisateur.getNom();
-        var request = "insert into exo1.utilisateur (nom) values(?) returning id";
+        String nom = utilisateur.getNom();
+        String prenom = utilisateur.getPrenom();
+        String email = utilisateur.getEmail();
+        LocalDate dateNaissance = utilisateur.getDateNaissance();
+        String pays = utilisateur.getPays();
+        String ville = utilisateur.getVille();
+        String codePostal = utilisateur.getCodePostal();
+
+        var request = "insert into exo1.utilisateur (nom, prenom, email, date_naissance, pays, ville, code_postal) values(?, ?, ?, ?, ? , ?, ? ) returning id";
 
         try(
-            Connection conn = dataSource.getConnection();
-            PreparedStatement ps = conn.prepareStatement(request)
-        ){
-            ps.setObject(1, name, Types.VARCHAR);
+                Connection conn = dataSource.getConnection();
+                PreparedStatement ps = conn.prepareStatement(request)
+        ) {
+            ps.setObject(1, nom, Types.VARCHAR);
+            ps.setObject(2, prenom, Types.VARCHAR);
+            ps.setObject(3, email, Types.VARCHAR);
+            ps.setObject(4, dateNaissance,Types.DATE);
+            ps.setObject(5, pays, Types.VARCHAR);
+            ps.setObject(6, ville, Types.VARCHAR);
+            ps.setObject(7, codePostal, Types.VARCHAR);
+
             try(
                     ResultSet rs = ps.executeQuery();
             ){
                 if(rs.next()){
                     Integer id = rs.getObject(1, Integer.class);
-                    System.out.println("INFO : -id de l'utilisateur : " + id);
+                    ;
+                    System.out.println("INFO : -id de l'utilisateur : " + findUserById(id).toString());
 
                 }
             }
@@ -56,9 +72,10 @@ public class UserRepositoryImpl implements UserRepository {
      * @param id
      * @return Utilisateur
      */
-    //TODO : Retourner un utilisateur
-    public void findUserById(Integer id){
+
+    public Utilisateur findUserById(Integer id){
         var request = "select * from exo1.utilisateur where id = ?";
+        Utilisateur utilisateur = new Utilisateur();
 
         try(
                 Connection conn = dataSource.getConnection();
@@ -70,7 +87,22 @@ public class UserRepositoryImpl implements UserRepository {
             ){
                 if(rs.next()){
                     Integer idRetourne = rs.getObject(1, Integer.class);
-                    System.out.println("INFO : -id de l'utilisateur : " + idRetourne);
+                    String nomRetourne = rs.getObject(2, String.class);
+                    String prenomRetourne = rs.getObject(3, String.class);
+                    String emailRetourne = rs.getObject(4, String.class);
+                    LocalDate dateNaissanceRetourne = rs.getObject(5, LocalDate.class);
+                    String paysRetourne = rs.getObject(6, String.class);
+                    String villeRetourne = rs.getObject(7, String.class);
+                    String codePostalRetourne = rs.getObject(8, String.class);
+
+                    utilisateur.setId(idRetourne);
+                    utilisateur.setNom(nomRetourne);
+                    utilisateur.setPrenom(prenomRetourne);
+                    utilisateur.setEmail(emailRetourne);
+                    utilisateur.setDateNaissance(dateNaissanceRetourne);
+                    utilisateur.setPays(paysRetourne);
+                    utilisateur.setVille(villeRetourne);
+                    utilisateur.setCodePostal(codePostalRetourne);
                 }
             }
         }
@@ -78,6 +110,6 @@ public class UserRepositoryImpl implements UserRepository {
 
             throw new RuntimeException("Erreur pendant selection de l'utilisateur", e);
         }
-        //return utilisateur;
+        return utilisateur;
     }
 }

@@ -7,6 +7,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.time.LocalDate;
+
 
 public class TestSpring {
 
@@ -14,7 +17,7 @@ public class TestSpring {
      * CRUD des utilisateurs
      * @param arg is aarg
      */
-    public static void main(String[] arg) throws SQLException {
+    public static void main(String[] arg) throws SQLException, ParseException {
 
         System.out.println("Hello");
 
@@ -25,8 +28,17 @@ public class TestSpring {
         }
         var userService = context.getBean(UserService.class);
 
-        Utilisateur utilisateur = new Utilisateur();
-        utilisateur.setNom("Bernard");
+        Utilisateur utilisateur =
+                new Utilisateur();
+
+        utilisateur.setNom("FINN");
+        utilisateur.setPrenom("Larry");
+        utilisateur.setEmail("FL@gmalo.com");
+        utilisateur.setDateNaissance(LocalDate.of(1995,12,10));
+        utilisateur.setPays("France");
+        utilisateur.setVille("Limoges");
+        utilisateur.setCodePostal("87000");
+
         userService.createUser(utilisateur);
 
     }
