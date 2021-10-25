@@ -5,14 +5,20 @@ import org.github.boutanche.exo1.domain.entity.Utilisateur;
 import java.sql.SQLException;
 
 /**
- * Service de gestion des Utilisateurs
+ * Repository des Utilisateurs
  */
-public interface UserRepository {
+public interface UtilisateurRepository {
     /**
      * Créer un Utilisateur dans la BDD
      * @param utilisateur Un Utilisateur
      */
-    void addUtilisateur(Utilisateur utilisateur) throws SQLException;
+    Utilisateur add(Utilisateur utilisateur);
+
+    /**
+     * Modifier ltuitilisateur
+     * @param utilisateur
+     */
+    void update(Utilisateur utilisateur);
 
     /**
      * Sélectionner un utilisateur dont on connait l'id
@@ -20,19 +26,13 @@ public interface UserRepository {
      * @return
      * @throws SQLException
      */
-    Utilisateur findUtilisateurById(Integer id) throws SQLException;
+    Utilisateur findById(Integer id) ;
 
     /**
      * Supprimer un utilisateur dont on connait l'id
      * @param id
      * @throws SQLException
      */
-    void deleteUtilisateurById(Integer id) throws  SQLException;
+    void deleteById(Integer id);
 
-    /**
-     * Mise à jour d'un utilisateur
-     * @param id
-     * @param utlisateur
-     */
-    void updateUtilisateurById(Integer id, Utilisateur utlisateur);
 }

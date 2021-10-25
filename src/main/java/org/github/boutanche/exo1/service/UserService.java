@@ -12,7 +12,14 @@ public interface UserService {
      * Création d'un Utilisateur dans la BDD
      * @param utilisateur
      */
-    void createUser(Utilisateur utilisateur) throws SQLException;
+    Utilisateur create(Utilisateur utilisateur);
+
+    /**
+     * Modification et mise à jour de l'utilisateur
+     * @param utilisateur
+     * @throws SQLException
+     */
+    void update(Utilisateur utilisateur);
 
     /**
      * Permet de sélection un utilisateur avec son identifiant
@@ -20,21 +27,14 @@ public interface UserService {
      * @return
      * @throws SQLException
      */
-    Utilisateur selectUser(Integer id) throws SQLException;
+    Utilisateur select(Integer id);
 
     /**
      * Permet de supprimer un utilisateur en utilisant son identifiant
      * @param id
      * @throws SQLException
      */
-    void deleteUser(Integer id) throws SQLException;
+    void delete(Integer id);
 
-    /**
-     * Modification de l'utilisateur nécessite de connaitre son Identifiant
-     * @param id
-     * @param utilisateur
-     * @throws SQLException
-     */
-    void modifyUser(Integer id, Utilisateur utilisateur) throws SQLException;
 }
 

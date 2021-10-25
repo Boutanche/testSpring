@@ -1,7 +1,7 @@
 package org.github.boutanche.exo1.service.impl;
 
 import org.github.boutanche.exo1.domain.entity.Utilisateur;
-import org.github.boutanche.exo1.domain.repository.UserRepository;
+import org.github.boutanche.exo1.domain.repository.UtilisateurRepository;
 import org.github.boutanche.exo1.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -12,27 +12,29 @@ import java.sql.SQLException;
  */
 @Service
 public class UserServiceImpl implements UserService {
-    private final UserRepository userRepository;
+    private final UtilisateurRepository utilisateurRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserServiceImpl(UtilisateurRepository utilisateurRepository) {
+        this.utilisateurRepository = utilisateurRepository;
     }
 
     @Override
-    public void createUser(Utilisateur utilisateur) throws SQLException {
-        userRepository.addUtilisateur(utilisateur);
+    public Utilisateur create(Utilisateur utilisateur) {
+        Utilisateur utilisateur1 = utilisateurRepository.add(utilisateur);
+        return utilisateur1;
     }
     @Override
-    public Utilisateur selectUser(Integer id) throws SQLException{
-        return userRepository.findUtilisateurById(id);
+    public void update(Utilisateur utilisateur) {
+        utilisateurRepository.update(utilisateur);
     }
     @Override
-    public void deleteUser(Integer id) throws SQLException{
-        userRepository.deleteUtilisateurById(id);
+    public Utilisateur select(Integer id) {
+        return utilisateurRepository.findById(id);
     }
     @Override
-    public void modifyUser(Integer id, Utilisateur utilisateur) throws SQLException{
-        userRepository.updateUtilisateurById(id, utilisateur);
+    public void delete(Integer id) {
+        utilisateurRepository.deleteById(id);
     }
+
 
 }

@@ -28,18 +28,31 @@ public class TestSpring {
         }
         var userService = context.getBean(UserService.class);
 
-        Utilisateur utilisateur =
-                new Utilisateur();
+        //Create :
+        Utilisateur utilisateur = new Utilisateur();
+        Utilisateur controle = new Utilisateur();
 
-        utilisateur.setId(19);
-        utilisateur.setNom("BETRANCOURT");
-        utilisateur.setPrenom("Bérénice");
-        utilisateur.setEmail("BJ@gmalo.com");
+        utilisateur.setNom("BAYLE");
+        utilisateur.setPrenom("Fabrice");
+        utilisateur.setEmail("FB@gmalo.com");
         utilisateur.setDateNaissance(LocalDate.of(1995,12,10));
         utilisateur.setPays("France");
         utilisateur.setVille("Limoges");
         utilisateur.setCodePostal("87000");
 
-        userService.modifyUser(19, utilisateur);
+
+        controle = userService.create(utilisateur);
+        System.out.println(controle.getId());
+        System.out.println(controle.getPrenom());
+
+        //Update
+        controle.setPrenom("Pierre");
+        userService.update(controle);
+
+        //FindById
+        userService.select(19);
+
+        //Delete
+        userService.delete(18);
     }
 }
